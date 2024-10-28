@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 include('web/sections.php');
+include('web/blogs.php');
