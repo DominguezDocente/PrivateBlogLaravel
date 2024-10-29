@@ -47,20 +47,21 @@
 
                         </div>
 
-                        <div class="col-md-11">
-
+                        <div class="col-md-10">
                             <div class="input-group-mb-3">
                                 <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
                                     aria-label="search" name="filter" value="{{ $data->filter }}">
-
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
                             </div>
-
                         </div>
+
+                        <div class="col-md-auto">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
 
                 </form>
