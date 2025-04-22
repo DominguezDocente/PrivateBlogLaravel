@@ -4,7 +4,8 @@ use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/sections', [SectionsController::class, 'index'])
-     ->name('sections.index');
+     ->name('sections.index')
+     ->middleware('auth');
 
 Route::get('/sections/create', [SectionsController::class, 'create'])
     ->name('sections.create');
