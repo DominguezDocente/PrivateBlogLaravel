@@ -18,4 +18,5 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 include('web/sections.php');
+include('web/blogs.php');
 
