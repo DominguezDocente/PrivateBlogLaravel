@@ -15,6 +15,13 @@
                 <span>Secciones</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('blogs.index') }}">
+                <i class="bi bi-menu-button-wide"></i>
+                <span>Blogs</span>
+            </a>
+        </li>
     </ul>
 
 </aside>
