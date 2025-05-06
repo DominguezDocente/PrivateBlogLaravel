@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Middleware\AuthorizedMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/blogs', [BlogsController::class, 'index'])
-     ->name('blogs.index');
+     ->name('blogs.index')
+     ->middleware(AuthorizedMiddleware::class . ':Blogs.showBlogs');
 
 Route::get('/blogs/create', [BlogsController::class, 'create'])
      ->name('blogs.create');

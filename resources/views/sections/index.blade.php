@@ -19,7 +19,9 @@
                         <h3>Secciones</h3>
                     </div>
                     <div class="col-md-1">
-                        <a href="{{ route('sections.create') }}" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></a>
+                        @if(\App\Helpers\RoleHelper::isAuthorized('Secciones.createSections'))
+                            <a href="{{ route('sections.create') }}" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -79,13 +81,19 @@
                                 <td>{{ $section->id }}</td>
                                 <td>{{ $section->name }}</td>
                                 <td>
-                                    <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <form action="{{ route('sections.delete', $section->id) }}" style="display: contents;" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
-                                    </form>
+                                    @if(\App\Helpers\RoleHelper::isAuthorized('Secciones.updateSections'))
+                                        <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                                    @endif
+
+
+                                    @if(\App\Helpers\RoleHelper::isAuthorized('Secciones.deleteSections'))
+                                        <form action="{{ route('sections.delete', $section->id) }}" style="display: contents;" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
 

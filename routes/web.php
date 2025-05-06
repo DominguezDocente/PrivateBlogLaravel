@@ -32,3 +32,4 @@ require __DIR__.'/auth.php';
 
 include('web/sections.php');
 include('web/blogs.php');
+include('web/roles.php');
