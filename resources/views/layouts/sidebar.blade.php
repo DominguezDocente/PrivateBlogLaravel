@@ -26,6 +26,16 @@
                 </a>
             </li>
         @endif
+
+
+        @if(\App\Helpers\RoleHelper::isAuthorized('Roles.showroles'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::routeIs('roles.*') ? '' : 'collapsed' }}" href="{{ route('roles.index') }}">
+                    <i class="bi bi-newspaper"></i>
+                    <span>Roles</span>
+                </a>
+            </li>
+        @endif
     </ul>
 
 </aside>

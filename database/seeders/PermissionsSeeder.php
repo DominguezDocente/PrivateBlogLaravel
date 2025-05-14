@@ -27,6 +27,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'updateBlogs', 'description' => 'Actualizar Blogs', 'module' => 'Blogs'],
             ['name' => 'deleteBlogs', 'description' => 'Eliminar Blogs', 'module' => 'Blogs'],
 
+            // Roles
+            ['name' => 'showRoles', 'description' => 'Ver Roles', 'module' => 'Roles'],
+            ['name' => 'createRoles', 'description' => 'Crear Roles', 'module' => 'Roles'],
+            ['name' => 'updateRoles', 'description' => 'Actualizar Roles', 'module' => 'Roles'],
+            ['name' => 'deleteRoles', 'description' => 'Eliminar Roles', 'module' => 'Roles'],
+
         ];
 
         foreach($permissions as $permission) {

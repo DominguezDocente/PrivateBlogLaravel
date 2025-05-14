@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\RolePermission;
+use App\Models\RoleSection;
 use App\Models\Section;
 use Exception;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class RolesController extends Controller
 
     public function edit($id) {
 
-        $role = Role::fund($id);
+        $role = Role::find($id);
 
         if (empty($role)) {
 
@@ -152,7 +153,7 @@ class RolesController extends Controller
 
                     $roleSection = new RoleSection();
                     $roleSection->role_id = $role->id;
-                    $roleSection->Section_id = $section;
+                    $roleSection->section_id = $section;
                     $roleSection->save();
                 }
             });
@@ -162,6 +163,7 @@ class RolesController extends Controller
 
         } catch (Exception $ex) {
 
+            dd($ex);
             Log::error($ex);
             Session::flash('message', ['content' => "Ha ocurrido un error.", 'type' => 'error']);
             return redirect()->back();
