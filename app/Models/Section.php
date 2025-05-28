@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    use HasFactory;
+    public function blogs() {
+
+        return $this->hasMany(Blog::class);
+    }
 }
