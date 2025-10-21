@@ -69,6 +69,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
+                            <th>Created At</th>
                             <th></th>
                         </tr>
                     </thead>
