@@ -28,6 +28,41 @@
 
             <div class="card-body">
 
+                <form action="{{ route('sections.index') }}" class="navbar-search" method="GET">
+
+                    <div class="row mt-3">
+                        <div class="col-md-auto">
+
+                            <select name="records_per_page" class="form-select bg-light border-0 small" value="{{ $data->records_per_page }}">
+                                <option value="2" {{ $data->records_per_page == 2 ? 'selected' : '' }}>2</option>
+                                <option value="10" {{ $data->records_per_page == 10 ? 'selected' : '' }}>10</option>
+                                <option value="15" {{ $data->records_per_page == 15 ? 'selected' : '' }}>15</option>
+                                <option value="30" {{ $data->records_per_page == 30 ? 'selected' : '' }}>30</option>
+                                <option value="50" {{ $data->records_per_page == 50 ? 'selected' : '' }}>50</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                       class="form-control bg-light border-0 small"
+                                       placeholder="Buscar..."
+                                       aria-label="search"
+                                       name="filter"
+                                       value="{{ $data->filter }}" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-auto">
+                            <div class="input-group mb-3">
+                                <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
                 <table class="table table-bordered">
 
                     <thead>
@@ -58,6 +93,8 @@
                     </tbody>
 
                 </table>
+
+                {{ $sections->appends(request()->except('page'))->links('components.customPagination') }}
 
             </div>
 
