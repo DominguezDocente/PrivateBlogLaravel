@@ -38,7 +38,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
                     <h6>{{ Auth::user()->full_name }}</h6>
-                    <span>Admin</span>
+                    <span>{{ Auth::user()->role->name }}</span>
                 </li>
 
                 <li>

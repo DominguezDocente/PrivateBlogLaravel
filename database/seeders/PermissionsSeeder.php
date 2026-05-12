@@ -26,6 +26,18 @@ class PermissionsSeeder extends Seeder
             ['name' => 'createBlogs', 'description' => 'Crear Blogs', 'module' => 'Blogs'],
             ['name' => 'updateBlogs', 'description' => 'Editar Blogs', 'module' => 'Blogs'],
             ['name' => 'deleteBlogs', 'description' => 'Eliminar Blogs', 'module' => 'Blogs'],
+
+            // Users
+            ['name' => 'showUsers', 'description' => 'Ver Usuarios', 'module' => 'Usuarios'],
+            ['name' => 'createUsers', 'description' => 'Crear Usuarios', 'module' => 'Usuarios'],
+            ['name' => 'updateUsers', 'description' => 'Editar Usuarios', 'module' => 'Usuarios'],
+            ['name' => 'deleteUsers', 'description' => 'Eliminar Usuarios', 'module' => 'Usuarios'],
+
+            // Roles
+            ['name' => 'showRoles', 'description' => 'Ver Roles', 'module' => 'Roles'],
+            ['name' => 'createRoles', 'description' => 'Crear Roles', 'module' => 'Roles'],
+            ['name' => 'updateRoles', 'description' => 'Editar Roles', 'module' => 'Roles'],
+            ['name' => 'deleteRoles', 'description' => 'Eliminar Roles', 'module' => 'Roles'],
         ];
 
 

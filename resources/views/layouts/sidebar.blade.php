@@ -27,6 +27,24 @@
             </li>
         @endif
 
+        @if (\App\Helpers\RoleHelper::isAuthorized('showUsers'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::routeIs('users.*') ? '' : 'collapsed' }}" href="{{ route('users.index') }}">
+                    <i class="bi bi-people"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+        @endif
+
+        @if (\App\Helpers\RoleHelper::isAuthorized('showRoles'))
+            <li class="nav-item">
+                <a class="nav-link {{ Request::routeIs('roles.*') ? '' : 'collapsed' }}" href="{{ route('roles.index') }}">
+                    <i class="bi bi-lock"></i>
+                    <span>Roles</span>
+                </a>
+            </li>
+        @endif
+
     </ul>
 
 </aside>

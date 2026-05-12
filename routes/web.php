@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 include('web/home.php');
 include('web/sections.php');
 include('web/blogs.php');
+include('web/users.php');
+include('web/roles.php');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

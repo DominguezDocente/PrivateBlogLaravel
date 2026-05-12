@@ -20,10 +20,13 @@
                     <div class="m-0 font-weight-bold text-primary col-md-11">
                         Blogs
                     </div>
-                    <div class="col-md-1">
-                        <a href="{{ route('blogs.create') }}" class="btn btn-primary"><i
-                                class="bi bi-plus-circle"></i></a>
-                    </div>
+
+                    @if (\App\Helpers\RoleHelper::isAuthorized('createBlogs'))
+                        <div class="col-md-1">
+                            <a href="{{ route('blogs.create') }}" class="btn btn-primary"><i
+                                    class="bi bi-plus-circle"></i></a>
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -81,17 +84,22 @@
                                 <td>{{ $blog->section->name }}</td>
 
                                 <td>
-                                    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil-fill"></i>
-                                    </a>
 
-                                    <form action="{{ route('blogs.delete', $blog->id) }}" style="display:contents"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger btn-sm btnDelete"><i
-                                                class="bi bi-trash-fill"></i></button>
-                                    </form>
+                                    @if (\App\Helpers\RoleHelper::isAuthorized('updateBlogs'))
+                                        <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-sm btn-warning">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                    @endif
+
+                                    @if (\App\Helpers\RoleHelper::isAuthorized('deleteBlogs'))
+                                        <form action="{{ route('blogs.delete', $blog->id) }}" style="display:contents"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm btnDelete"><i
+                                                    class="bi bi-trash-fill"></i></button>
+                                        </form>
+                                    @endif
                                 </td>
 
                             </tr>

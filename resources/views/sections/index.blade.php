@@ -22,9 +22,13 @@
                     <h3>Secciones</h3>
                 </div>
 
-                <div class="col-md-1">
-                    <a class="btn btn-primary" href="{{ route('sections.create') }}"><i class="bi bi-plus-circle-fill"></i></a>
-                </div>
+                @if (\App\Helpers\RoleHelper::isAuthorized('createSections'))
+                    <div class="col-md-1">
+                        <a class="btn btn-primary" href="{{ route('sections.create') }}">
+                            <i class="bi bi-plus-circle-fill"></i>
+                        </a>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -85,15 +89,20 @@
                             <td> {{ $section->name }} </td>
                             <td> {{ $section->created_at }} </td>
                             <td>
-                                <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </a>
+                                @if (\App\Helpers\RoleHelper::isAuthorized('updateSections'))
+                                    <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                @endif
 
-                                <form action="{{ route('sections.delete',  $section->id) }}" style="display: contents;" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
-                                </form>
+
+                                @if (\App\Helpers\RoleHelper::isAuthorized('deleteSections'))
+                                    <form action="{{ route('sections.delete',  $section->id) }}" style="display: contents;" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
 

@@ -42,12 +42,6 @@ class RoleHelper {
             $userId = Auth::user()->id;
 
             $user = User::where('id', '=', $userId)->with('role')->first();
-            // $role = Role::with('permissions')->where('id', '=', $user->role_id)->first();
-
-            // if ($permission != 'showSections') {
-
-            //     dd($user->toArray(), $role->toArray(), $permission);
-            // }
 
             $permissionId = Permission::select('permissions.id')
                                       ->join('role_permissions', 'permissions.id', 'role_permissions.permission_id')
@@ -56,11 +50,6 @@ class RoleHelper {
                                       ->where('permissions.name', '=', $permission)
                                       ->where('users.id', '=', $userId)
                                       ->first();
-
-            // if ($permission != 'showSections') {
-
-            //     dd($user->toArray(), $role->toArray(), $permission, $permissionId, $permissionId != null);
-            // }
 
             return $permissionId != null;
 
