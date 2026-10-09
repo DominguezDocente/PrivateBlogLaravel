@@ -41,8 +41,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach($sections as $section)
-
+                        @foreach ($sections as $section)
                             <tr>
                                 <td>{{ $section->id }}</td>
                                 <td>{{ $section->name }}</td>
@@ -51,16 +50,16 @@
                                         <i class="bi bi-pencil-fill"></i>
                                     </a>
 
-                                    <form action="{{ route('sections.delete', $section->id) }}" method="POST" style="display: contents;">
+                                    <form action="{{ route('sections.delete', $section->id) }}" method="POST"
+                                        style="display: contents;">
                                         @csrf
                                         @method('DELETE')
 
-                                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                        <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
 
                                     </form>
                                 </td>
                             </tr>
-
                         @endforeach
                     </tbody>
                 </table>
@@ -69,3 +68,35 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+
+    <script>
+
+        $(document).ready(function() {
+
+            $('.btnDelete').click(function(event) {
+
+                event.preventDefault();
+
+                Swal.fire({
+
+                    title: "¿Desea elimiar la sección?",
+                    text: "No podrá revertirlo",
+                    icon: "question",
+                    showCancelButton: true,
+
+                }).then((result) => {
+
+                    if (result.isConfirmed) {
+
+                        const form = $(this).closest('form');
+
+                        form.submit();
+                    };
+                });
+            });
+        });
+
+    </script>
+@endpush

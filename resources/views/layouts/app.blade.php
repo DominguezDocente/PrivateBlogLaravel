@@ -22,6 +22,7 @@
 
     @include('layouts.scripts')
 
+    @stack('scripts')
 </body>
 
 </html>
