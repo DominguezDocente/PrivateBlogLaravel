@@ -3,7 +3,7 @@
 use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/sections' , [SectionsController::class, 'index'])->name('sections.index');
+Route::get('/sections' , [SectionsController::class, 'index'])->name('sections.index')->middleware('auth');
 Route::get('/sections/create' , [SectionsController::class, 'create'])->name('sections.create');
 Route::get('/sections/edit/{id}' , [SectionsController::class, 'edit'])->name('sections.edit');
 
