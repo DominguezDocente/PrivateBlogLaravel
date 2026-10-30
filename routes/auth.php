@@ -7,6 +7,10 @@ Route::middleware('guest')->group(function() {
 
     Route::get('login', [AccountController::class, 'login'])->name('login');
     Route::post('login', [AccountController::class, 'loginPost'])->name('loginPost');
-
 });
 
+
+Route::middleware('auth')->group(function() {
+
+    Route::post('logout', [AccountController::class, 'logout'])->name('logout');
+});
