@@ -21,6 +21,18 @@ class PermissionsSeeder extends Seeder
             ['code' => 'sections.update', 'description' => 'Editar Secciones', 'module' => 'Secciones'],
             ['code' => 'sections.delete', 'description' => 'Eliminar Secciones', 'module' => 'Secciones'],
 
+            // Users
+            ['code' => 'users.show', 'description' => 'Ver Usuarios', 'module' => 'Usuarios'],
+            ['code' => 'users.create', 'description' => 'Crear Usuarios', 'module' => 'Usuarios'],
+            ['code' => 'users.update', 'description' => 'Editar Usuarios', 'module' => 'Usuarios'],
+            ['code' => 'users.delete', 'description' => 'Eliminar Usuarios', 'module' => 'Usuarios'],
+
+            // Roles
+            ['code' => 'roles.show', 'description' => 'Ver Roles', 'module' => 'Roles'],
+            ['code' => 'roles.create', 'description' => 'Crear Roles', 'module' => 'Roles'],
+            ['code' => 'roles.update', 'description' => 'Editar Roles', 'module' => 'Roles'],
+            ['code' => 'roles.delete', 'description' => 'Eliminar Roles', 'module' => 'Roles'],
+
         ];
 
 

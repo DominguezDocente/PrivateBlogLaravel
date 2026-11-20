@@ -22,11 +22,13 @@
                         <h3>Secciones</h3>
                     </div>
 
-                    <div class="col-md-1">
-                        <a href="{{ route('sections.create') }}" class="btn btn-primary">
-                            <i class="bi bi-plus-circle-fill"></i>
-                        </a>
-                    </div>
+                    @if (\App\Helpers\RoleHelper::isAuthorized('sections.create'))
+                        <div class="col-md-1">
+                            <a href="{{ route('sections.create') }}" class="btn btn-primary">
+                                <i class="bi bi-plus-circle-fill"></i>
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -83,18 +85,24 @@
                                 <td>{{ $section->id }}</td>
                                 <td>{{ $section->name }}</td>
                                 <td>
-                                    <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning">
-                                        <i class="bi bi-pencil-fill"></i>
-                                    </a>
 
-                                    <form action="{{ route('sections.delete', $section->id) }}" method="POST"
-                                        style="display: contents;">
-                                        @csrf
-                                        @method('DELETE')
+                                    @if (\App\Helpers\RoleHelper::isAuthorized('sections.update'))
+                                        <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-warning">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                    @endif
 
-                                        <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
 
-                                    </form>
+                                    @if (\App\Helpers\RoleHelper::isAuthorized('sections.delete'))
+                                        <form action="{{ route('sections.delete', $section->id) }}" method="POST"
+                                            style="display: contents;">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class="btn btn-danger btnDelete"><i class="bi bi-trash-fill"></i></button>
+
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -28,7 +28,4 @@ Route::delete('/sections/delete/{id}' , [SectionsController::class, 'delete'])
      ->name('sections.delete')
      ->middleware(AuthorizedMiddleware::class . ':sections.delete');
 
-
-
-
 ?>

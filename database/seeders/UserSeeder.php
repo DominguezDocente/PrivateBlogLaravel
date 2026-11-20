@@ -41,7 +41,9 @@ class UserSeeder extends Seeder
         // Users
         // Admin
         $user = new User();
-        $user->name = "Adminstrador";
+        $user->first_name = "Super";
+        $user->last_name = "Admin";
+        $user->document = "1111";
         $user->email = "admin@privateblog.com";
         $user->email_verified_at = now();
         $user->password = Hash::make('1234');
@@ -50,7 +52,9 @@ class UserSeeder extends Seeder
 
         // Content Manager
         $user = new User();
-        $user->name = "Jhon Doe";
+        $user->first_name = "Jhon";
+        $user->last_name = "Doe";
+        $user->document = "2222";
         $user->email = "jhond@privateblog.com";
         $user->email_verified_at = now();
         $user->password = Hash::make('1234');
